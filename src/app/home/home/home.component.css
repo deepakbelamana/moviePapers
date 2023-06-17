@@ -9,13 +9,18 @@
 }
 
 .productContainer{
-  padding: 10px;
-  margin:8vh;
+  padding: 2px 0px 2px 10px;
+  margin:5% 0px 4px 10%;
 }
 .contentRequest{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 5px;
+  margin:5% 0px 4px 10%;
+}
+
+.searchBar{
+  width: 70%;
+  margin: auto;
 }

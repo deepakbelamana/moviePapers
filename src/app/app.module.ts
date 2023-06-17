@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { ProductsComponent } from './products/products/products.component';
 import { RequestComponent } from './requests/request/request.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { MPSearchComponent } from './MPSearch/mpsearch/mpsearch.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer/footer.component';
     HeaderComponent,
     ProductsComponent,
     RequestComponent,
-    FooterComponent
+    FooterComponent,
+    MPSearchComponent
   ],
   imports: [
     BrowserModule,
