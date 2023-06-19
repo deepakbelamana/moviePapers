@@ -9,7 +9,7 @@ import { ProductsComponent } from './products/products/products.component';
 import { RequestComponent } from './requests/request/request.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { MPSearchComponent } from './MPSearch/mpsearch/mpsearch.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { MPSearchComponent } from './MPSearch/mpsearch/mpsearch.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
