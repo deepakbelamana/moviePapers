@@ -21,6 +21,9 @@
 }
 
 .searchBar{
-  width: 70%;
-  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin:3% 0px 4px 0%;
 }

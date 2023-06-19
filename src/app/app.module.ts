@@ -10,6 +10,7 @@ import { RequestComponent } from './requests/request/request.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { MPSearchComponent } from './MPSearch/mpsearch/mpsearch.component';
 import { HttpClientModule } from '@angular/common/http';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
