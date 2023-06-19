@@ -13,6 +13,6 @@ export class MovieService {
   }
 
   getAllMoviesList(){
-    return this.http.get(this.baseLocalApiUrl+"moviesList")
+    return this.http.get(this.baseProductionApiUrl+"moviesList")
   }
 }

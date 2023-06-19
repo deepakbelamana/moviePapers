@@ -9,15 +9,15 @@ import { MovieService } from 'src/app/servers/movie.service';
 export class HomeComponent implements OnInit {
 
   constructor(private movieServie : MovieService) { }
-
+  moviesList:[]=[]
   ngOnInit(): void {
     this.getAllMoviesList();
   }
 
   getAllMoviesList(){
 
-      this.movieServie.getAllMoviesList().subscribe((moviesList)=>{
-        console.log(moviesList);
+      this.movieServie.getAllMoviesList().subscribe((moviesList:any)=>{
+        this.moviesList=moviesList
       })
   }
 }

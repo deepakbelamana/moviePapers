@@ -1,4 +1,4 @@
-<div class="input-group">
+<!-- <div class="input-group">
     <input type="text" class="form-control" placeholder="Search this blog">
     <div class="input-group-append">
       <button class="btn btn-danger" type="button">
@@ -7,4 +7,21 @@
         </svg>
       </button>
     </div>
-  </div>
+  </div> -->
+
+  <div class="ng-autocomplete">
+    <ng-autocomplete style="width: 30px;"
+      [data]="moviesList"
+      placeholder="Search Movie"
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item" style="color:red;"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+    </ng-template>
+    </div>
