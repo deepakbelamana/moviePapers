@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../product';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from '../../model/product';
+import { Movie } from 'src/app/model/movie';
 
 @Component({
   selector: 'app-products',
@@ -8,6 +9,12 @@ import { Product } from '../product';
 })
 export class ProductsComponent implements OnInit {
 
+  @Input() MPMovie : Movie ={
+    movie:"",
+    MPAPExist:true,
+    MPRVExist:true,
+    MPCExist:true
+  }
   constructor() { }
 
   ngOnInit(): void {
@@ -16,15 +23,18 @@ export class ProductsComponent implements OnInit {
   products:Product[]=[
     {
       imgPath:"../../../assets/images/cinematicShots.jpg",
-      description:"View some best cinematic shots from your favourite movies"
+      description:"View some best cinematic shots from your favourite movies",
+      showProduct:this.MPMovie.MPCExist
     },
     {
       imgPath:"../../../assets/images/wallpapers.jpg",
-      description:"Download wallpapers of your favourite movie"
+      description:"Download wallpapers of your favourite movie",
+      showProduct:this.MPMovie.MPAPExist
     },
     {
       imgPath:"../../../assets/images/movieReviews.jpg",
-      description:"Check our Reviews on recent films"
+      description:"Check our Reviews on recent films",
+      showProduct:this.MPMovie.MPRVExist
     }
   ]
 

@@ -14,7 +14,9 @@
       [data]="moviesList"
       placeholder="Search Movie"
       [itemTemplate]="itemTemplate"
-      [notFoundTemplate]="notFoundTemplate">
+      [notFoundTemplate]="notFoundTemplate"
+      (selected)="sendSearchItem($event)"
+      >
     </ng-autocomplete>
 
     <ng-template #itemTemplate let-item>

@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer/footer.component';
 import { MPSearchComponent } from './MPSearch/mpsearch/mpsearch.component';
 import { HttpClientModule } from '@angular/common/http';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { MPHubComponent } from './MPHub/mphub/mphub.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     ProductsComponent,
     RequestComponent,
     FooterComponent,
-    MPSearchComponent
+    MPSearchComponent,
+    MPHubComponent
   ],
   imports: [
     BrowserModule,

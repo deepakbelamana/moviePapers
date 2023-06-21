@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-mpsearch',
@@ -8,10 +8,16 @@ import { Component, OnInit,Input } from '@angular/core';
 export class MPSearchComponent implements OnInit {
 
   @Input() moviesList =[];
+  @Output() movieSearchItemfromSearchComponent : EventEmitter<string> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
-    
+
+  }
+
+  sendSearchItem(searchItem:any)
+  {
+    this.movieSearchItemfromSearchComponent.emit(searchItem);
   }
 
 }
