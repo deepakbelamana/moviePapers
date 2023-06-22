@@ -7,7 +7,7 @@
   <app-mpsearch [moviesList]="moviesList" (movieSearchItemfromSearchComponent)="movieSearchItem($event)"></app-mpsearch>
 </div>
 <div class="productContainer container" >
-  <app-products [MPMovie]="MPMovie"></app-products>
+  <app-products #productComponent [MPMovie]="MPMovie"></app-products>
 </div>
 <div class="contentRequest">
   <app-request></app-request>

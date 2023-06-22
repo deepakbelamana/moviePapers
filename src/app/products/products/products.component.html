@@ -1,12 +1,16 @@
 <div class="container text-center">
+  <h2 *ngIf="MPMovie.movie==''?false:true">showing results based on movie '{{MPMovie.movie}}'</h2>
   <div class="row">
     <div *ngFor="let product of products" class="col">
-      <div class="card" style="width: 18rem;" (click)="productPage(product)">
+      <div class="card" style="width: 18rem;" (click)="productPage(product)" *ngIf="product.showProduct">
         <img src={{product.imgPath}} class="card-img-top" alt="...">
         <div class="card-body">
           <p class="card-text">{{product.description}}</p>
         </div>
       </div>
     </div>
+  </div>
+  <div class="noProductExist" *ngIf="checkForProductExistence()">
+      <app-no-product-exist [searchedMovie]="MPMovie.movie"></app-no-product-exist>
   </div>
 </div>

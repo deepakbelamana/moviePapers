@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Movie } from 'src/app/model/movie';
+import { ProductsComponent } from 'src/app/products/products/products.component';
 import { MovieService } from 'src/app/servers/movie.service';
 
 @Component({
@@ -9,15 +10,17 @@ import { MovieService } from 'src/app/servers/movie.service';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('productComponent') produtComponent: ProductsComponent = new ProductsComponent;
+
   constructor(private movieServie : MovieService) { }
   moviesList:[]=[]
   movieRequestedFromSearchComponent:string=""
 
   MPMovie:Movie={
     movie:this.movieRequestedFromSearchComponent,
-    MPAPExist:true,
-    MPRVExist:true,
-    MPCExist:true
+    mppapexist:true,
+    mprvexist:true,
+    mpcexist:true
   }
 
   ngOnInit(): void {
@@ -36,12 +39,21 @@ export class HomeComponent implements OnInit {
   {
     this.movieRequestedFromSearchComponent=searchItem;
     this.movieServie.getMPMovieBasedOnMovieSearchItem(this.movieRequestedFromSearchComponent).subscribe(((MPMovieRes) => {
-          console.log(MPMovieRes)
+          
           this.MPMovie.movie=MPMovieRes.movie;
-          this.MPMovie.MPAPExist=MPMovieRes.MPAPExist;
-          this.MPMovie.MPCExist=MPMovieRes.MPCExist;
-          this.MPMovie.MPRVExist=MPMovieRes.MPRVExist;
-          console.log("After assigning "+ this.MPMovie.movie);
+          this.MPMovie.mppapexist=MPMovieRes.mppapexist;
+          this.MPMovie.mpcexist=MPMovieRes.mpcexist;
+          this.MPMovie.mprvexist=MPMovieRes.mprvexist;
+
+          /*since we are getting only one object and we have only three products
+            show product based on the movie existence in db.
+          */
+          this.produtComponent.products[0].showProduct= this.MPMovie.mpcexist;
+          this.produtComponent.products[1].showProduct= this.MPMovie.mppapexist;
+          this.produtComponent.products[2].showProduct= this.MPMovie.mprvexist;
+          this.produtComponent.MPMovie.movie=this.MPMovie.movie;
+          
+          
     }))
   }
 }

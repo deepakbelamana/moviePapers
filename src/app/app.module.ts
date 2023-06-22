@@ -12,6 +12,7 @@ import { MPSearchComponent } from './MPSearch/mpsearch/mpsearch.component';
 import { HttpClientModule } from '@angular/common/http';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { MPHubComponent } from './MPHub/mphub/mphub.component';
+import { NoProductExistComponent } from './NoExistence/no-product-exist/no-product-exist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { MPHubComponent } from './MPHub/mphub/mphub.component';
     RequestComponent,
     FooterComponent,
     MPSearchComponent,
-    MPHubComponent
+    MPHubComponent,
+    NoProductExistComponent
   ],
   imports: [
     BrowserModule,
