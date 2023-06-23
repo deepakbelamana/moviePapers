@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Product } from '../../model/product';
 import { Movie } from 'src/app/model/movie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +16,7 @@ export class ProductsComponent implements OnInit {
     mprvexist:true,
     mpcexist:true
   }
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,26 +25,32 @@ export class ProductsComponent implements OnInit {
     {
       imgPath:"../../../assets/images/cinematicShots.jpg",
       description:"View some best cinematic shots from your favourite movies",
-      showProduct:this.MPMovie.mpcexist
+      showProduct:this.MPMovie.mpcexist,
+      productType:"mpCs"
     },
     {
       imgPath:"../../../assets/images/wallpapers.jpg",
       description:"Download wallpapers of your favourite movie",
-      showProduct:this.MPMovie.mppapexist
+      showProduct:this.MPMovie.mppapexist,
+      productType:"mpPap"
     },
     {
       imgPath:"../../../assets/images/movieReviews.jpg",
       description:"Check our Reviews on recent films",
-      showProduct:this.MPMovie.mprvexist
+      showProduct:this.MPMovie.mprvexist,
+      productType:'mpRv'
     }
   ]
 
   checkForProductExistence(){
-    
-    return  this.products[0].showProduct ==false && this.products[1].showProduct ==false && this.products[2].showProduct ==false;
-            
-  }
-  productPage(product : Product){
 
+    return  this.products[0].showProduct ==false && this.products[1].showProduct ==false && this.products[2].showProduct ==false;
+
+  }
+  goToproductPageMPHub(product : Product){
+    /**
+     * sending product type and searched movie to MPHub component to display images in db
+     */
+    this.router.navigate(['MPHub',product.productType,this.MPMovie.movie])
   }
 }

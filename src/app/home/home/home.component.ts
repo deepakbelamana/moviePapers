@@ -10,7 +10,8 @@ import { MovieService } from 'src/app/servers/movie.service';
 })
 export class HomeComponent implements OnInit {
 
-  @ViewChild('productComponent') produtComponent: ProductsComponent = new ProductsComponent;
+  @ViewChild('productComponent')
+  produtComponent!: ProductsComponent;
 
   constructor(private movieServie : MovieService) { }
   moviesList:[]=[]
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
   {
     this.movieRequestedFromSearchComponent=searchItem;
     this.movieServie.getMPMovieBasedOnMovieSearchItem(this.movieRequestedFromSearchComponent).subscribe(((MPMovieRes) => {
-          
+
           this.MPMovie.movie=MPMovieRes.movie;
           this.MPMovie.mppapexist=MPMovieRes.mppapexist;
           this.MPMovie.mpcexist=MPMovieRes.mpcexist;
@@ -52,8 +53,8 @@ export class HomeComponent implements OnInit {
           this.produtComponent.products[1].showProduct= this.MPMovie.mppapexist;
           this.produtComponent.products[2].showProduct= this.MPMovie.mprvexist;
           this.produtComponent.MPMovie.movie=this.MPMovie.movie;
-          
-          
+
+
     }))
   }
 }

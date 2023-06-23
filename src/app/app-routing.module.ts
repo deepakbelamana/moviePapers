@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
+import { MPHubComponent } from './MPHub/mphub/mphub.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path:'',
    component:HomeComponent
+  },
+  {
+    path:'MPHub/:productType/:movie',
+    component:MPHubComponent,
   }
 ];
 

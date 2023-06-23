@@ -1,5 +1,6 @@
 export interface Product {
-  imgPath:String,
-  description:String,
-  showProduct:boolean
+  imgPath:string,
+  description:string,
+  showProduct:boolean,
+  productType:string
 }

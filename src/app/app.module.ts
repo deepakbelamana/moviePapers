@@ -31,7 +31,7 @@ import { NoProductExistComponent } from './NoExistence/no-product-exist/no-produ
     HttpClientModule,
     AutocompleteLibModule
   ],
-  providers: [],
+  providers: [ProductsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
