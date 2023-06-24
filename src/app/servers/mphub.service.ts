@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MovieService } from './movie.service';
 import { HttpClient } from '@angular/common/http';
-import { MPProduct } from '../model/mpproduct';
+import { MPPaperProduct } from '../model/mpproduct';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,6 @@ export class MPHubService {
    * service call to get product images based in the movie selected and product type
    */
   getMPProductImages(productType:string,movie:string){
-    return this.http.get<MPProduct>(this.movieService.baseProductionApiUrl+productType+"/"+movie)
+    return this.http.get<MPPaperProduct>(this.movieService.baseProductionApiUrl+productType+"/"+movie)
   }
 }

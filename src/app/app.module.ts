@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home/home.component';
@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { MPHubComponent } from './MPHub/mphub/mphub.component';
 import { NoProductExistComponent } from './NoExistence/no-product-exist/no-product-exist.component';
+import { BulkUploadMongoComponent } from './Admin/bulk-upload-mongo/bulk-upload-mongo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,13 +25,15 @@ import { NoProductExistComponent } from './NoExistence/no-product-exist/no-produ
     FooterComponent,
     MPSearchComponent,
     MPHubComponent,
-    NoProductExistComponent
+    NoProductExistComponent,
+    BulkUploadMongoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    FormsModule
   ],
   providers: [ProductsComponent],
   bootstrap: [AppComponent]

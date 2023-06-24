@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MPProduct } from 'src/app/model/mpproduct';
+import { MPCinematicProduct } from 'src/app/model/mpcinematic-product';
+import { MPPaperProduct } from 'src/app/model/mpproduct';
 import { ProductsComponent } from 'src/app/products/products/products.component';
 import { MPHubService } from 'src/app/servers/mphub.service';
 
@@ -18,7 +19,11 @@ export class MPHubComponent implements OnInit {
   searchedMovie:string="";
   productToCall:string="";
 
-  MPProduct:MPProduct[]=[]
+  isMPCinematic:boolean=false;
+  isMPPaper:boolean=false;
+
+  MPPaperProduct:MPPaperProduct[]=[]
+  MPCinematicProduct:MPCinematicProduct[]=[]
   ngOnInit(): void {
      /**
          * assigning selected variables,for searching images from db
@@ -36,8 +41,13 @@ export class MPHubComponent implements OnInit {
    */
   getMPProductImages(productType:string,movie:string){
     this.mpHubService.getMPProductImages(productType,movie).subscribe((mpProduct:any)=>{
-      this.MPProduct=mpProduct
-      console.log(this.MPProduct)
+      if(this.isMPCinematic){
+        this.MPCinematicProduct=mpProduct
+      }
+      if(this.isMPPaper){
+        this.MPPaperProduct=mpProduct
+      }
+
     })
   }
 
@@ -52,10 +62,12 @@ export class MPHubComponent implements OnInit {
 
     if(productType==this.productsComponent.products[0].productType)
     {
+     this.isMPCinematic=true
       return 'mp-cinematic'
     }
     if(productType==this.productsComponent.products[1].productType)
     {
+      this.isMPPaper=true
       return 'mp-paper'
     }
     if(productType==this.productsComponent.products[2].productType)
