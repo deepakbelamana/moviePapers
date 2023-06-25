@@ -4,7 +4,7 @@
   <p>download for free</p>
 </div>
 <div class="searchBar">
-  <app-mpsearch [moviesList]="moviesList" (movieSearchItemfromSearchComponent)="movieSearchItem($event)"></app-mpsearch>
+  <app-mpsearch style="width:50%;margin:auto" [moviesList]="moviesList" (movieSearchItemfromSearchComponent)="movieSearchItem($event)"></app-mpsearch>
 </div>
 <div class="productContainer container" >
   <app-products #productComponent [MPMovie]="MPMovie"></app-products>
