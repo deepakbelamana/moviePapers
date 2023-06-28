@@ -3,3 +3,7 @@
   font-family: 'Ubuntu';
   src: url('../src/assets/Ubuntu/Ubuntu-Regular.ttf');
 }
+
+*{
+  font-family: 'Ubuntu';
+}

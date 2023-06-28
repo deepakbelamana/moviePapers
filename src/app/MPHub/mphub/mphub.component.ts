@@ -78,8 +78,22 @@ export class MPHubComponent implements OnInit {
     return '';
   }
 
+  /**
+   *downloads image based on image url, as filenamed as its movie name
+   * @param MPImgPath
+   * @param MPMovieName
+   */
   downloadMpImage(MPImgPath:string,MPMovieName:string)
   {
     this.downloadMpProduct.downloadMpImage(MPImgPath,MPMovieName);
   }
+
+/**
+ * opens the image in new tab for preview before download.
+ * @param imageUrl
+ */
+  previewImage(imageUrl: string) {
+    window.open(imageUrl,'_blank','fullscreen')
+  }
 }
+
