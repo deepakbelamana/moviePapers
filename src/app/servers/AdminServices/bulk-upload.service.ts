@@ -12,6 +12,6 @@ export class BulkUploadService {
   constructor(private http : HttpClient) { }
 
   bulkUploadDataToMongo(bulkUploadData:any) {
-    return this.http.post(this.baseProductionApiUrl+"bulkUpload/imagePaths",bulkUploadData,{responseType: 'text'});
+    return this.http.post(this.baseLocalApiUrl+"bulkUpload/imagePaths",bulkUploadData,{responseType: 'text'});
   }
 }
