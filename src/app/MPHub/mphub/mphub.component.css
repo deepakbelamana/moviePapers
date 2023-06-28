@@ -7,5 +7,12 @@
   box-shadow: 1px 1px 5px 2px rgb(241, 241, 241);
   border: 0px solid #000000;
   padding:1.5%;
-  margin:0px 2% 0px 2%;
+  margin:2% 2% 0px 2%;
+  border-radius: 5px;
+}
+
+.row button{
+  width: 50%;
+  margin: auto;
+  padding: 2.5%;
 }

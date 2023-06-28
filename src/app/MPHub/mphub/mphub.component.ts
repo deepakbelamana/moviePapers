@@ -4,51 +4,56 @@ import { MPCinematicProduct } from 'src/app/model/mpcinematic-product';
 import { MPPaperProduct } from 'src/app/model/mpproduct';
 import { ProductsComponent } from 'src/app/products/products/products.component';
 import { MPHubService } from 'src/app/servers/mphub.service';
+import { DownloadMPProductComponent } from '../download-mpproduct/download-mpproduct.component';
 
 @Component({
   selector: 'app-mphub',
   templateUrl: './mphub.component.html',
-  styleUrls: ['./mphub.component.css']
+  styleUrls: ['./mphub.component.css'],
 })
 export class MPHubComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private mpHubService: MPHubService,
+    private productsComponent: ProductsComponent,
+    private downloadMpProduct: DownloadMPProductComponent
+  ) {}
 
-  constructor(private route : ActivatedRoute,private mpHubService:MPHubService,private productsComponent: ProductsComponent) { }
+  selectedProduct: string = '';
+  searchedMovie: string = '';
+  productToCall: string = '';
 
+  isMPCinematic: boolean = false;
+  isMPPaper: boolean = false;
 
-  selectedProduct:string="";
-  searchedMovie:string="";
-  productToCall:string="";
-
-  isMPCinematic:boolean=false;
-  isMPPaper:boolean=false;
-
-  MPPaperProduct:MPPaperProduct[]=[]
-  MPCinematicProduct:MPCinematicProduct[]=[]
+  MPPaperProduct: MPPaperProduct[] = [];
+  MPCinematicProduct: MPCinematicProduct[] = [];
   ngOnInit(): void {
-     /**
-         * assigning selected variables,for searching images from db
-         */
-    this.route.params.subscribe((param:any)=>{
-        this.selectedProduct=param.productType;
-        this.searchedMovie=param.movie
-        //calling the service to get product images
-        this.productToCall=this.productNameBasedOnProductType(this.selectedProduct);
-        this.getMPProductImages(this.productToCall,this.searchedMovie);
-    })
+    /**
+     * assigning selected variables,for searching images from db
+     */
+    this.route.params.subscribe((param: any) => {
+      this.selectedProduct = param.productType;
+      this.searchedMovie = param.movie;
+      //calling the service to get product images
+      this.productToCall = this.productNameBasedOnProductType(
+        this.selectedProduct
+      );
+      this.getMPProductImages(this.productToCall, this.searchedMovie);
+    });
   }
   /**
    * function to get product images based in the movie selected and product type
    */
-  getMPProductImages(productType:string,movie:string){
-    this.mpHubService.getMPProductImages(productType,movie).subscribe((mpProduct:any)=>{
-      if(this.isMPCinematic){
-        this.MPCinematicProduct=mpProduct
-      }
-      if(this.isMPPaper){
-        this.MPPaperProduct=mpProduct
-      }
-
-    })
+  getMPProductImages(productType: string, movie: string) {
+    this.mpHubService.getMPProductImages(productType, movie).subscribe((mpProduct: any) => {
+        if (this.isMPCinematic) {
+          this.MPCinematicProduct = mpProduct;
+        }
+        if (this.isMPPaper) {
+          this.MPPaperProduct = mpProduct;
+        }
+      });
   }
 
   /**
@@ -58,22 +63,23 @@ export class MPHubComponent implements OnInit {
    * @param productType
    * @returns string
    */
-  productNameBasedOnProductType(productType:string):string{
+  productNameBasedOnProductType(productType: string): string {
+    if (productType == this.productsComponent.products[0].productType) {
+      this.isMPCinematic = true;
+      return 'mp-cinematic';
+    }
+    if (productType == this.productsComponent.products[1].productType) {
+      this.isMPPaper = true;
+      return 'mp-paper';
+    }
+    if (productType == this.productsComponent.products[2].productType) {
+      return 'mp-review';
+    }
+    return '';
+  }
 
-    if(productType==this.productsComponent.products[0].productType)
-    {
-     this.isMPCinematic=true
-      return 'mp-cinematic'
-    }
-    if(productType==this.productsComponent.products[1].productType)
-    {
-      this.isMPPaper=true
-      return 'mp-paper'
-    }
-    if(productType==this.productsComponent.products[2].productType)
-    {
-      return 'mp-review'
-    }
-    return ""
+  downloadMpImage(MPImgPath:string,MPMovieName:string)
+  {
+    this.downloadMpProduct.downloadMpImage(MPImgPath,MPMovieName);
   }
 }

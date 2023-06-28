@@ -14,6 +14,7 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { MPHubComponent } from './MPHub/mphub/mphub.component';
 import { NoProductExistComponent } from './NoExistence/no-product-exist/no-product-exist.component';
 import { BulkUploadMongoComponent } from './Admin/bulk-upload-mongo/bulk-upload-mongo.component';
+import { DownloadMPProductComponent } from './MPHub/download-mpproduct/download-mpproduct.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BulkUploadMongoComponent } from './Admin/bulk-upload-mongo/bulk-upload-
     MPSearchComponent,
     MPHubComponent,
     NoProductExistComponent,
-    BulkUploadMongoComponent
+    BulkUploadMongoComponent,
+    DownloadMPProductComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { BulkUploadMongoComponent } from './Admin/bulk-upload-mongo/bulk-upload-
     AutocompleteLibModule,
     FormsModule
   ],
-  providers: [ProductsComponent],
+  providers: [ProductsComponent,DownloadMPProductComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

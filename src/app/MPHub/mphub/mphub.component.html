@@ -8,7 +8,18 @@
           <img [src]="product.mppath" style="width: 100%;height: 100%;"/>
         </div>
         <div class="col">
-           like, review and share
+          <div class="row">
+            <button type="button" class="btn btn-dark">Like</button>
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn-danger">Preview</button>
+           </div>
+           <div class="row">
+            <button type="button" class="btn btn-secondary">Share</button>
+           </div>
+           <div class="row">
+            <button type="button" class="btn btn-light" (click)="downloadMpImage(product.mppath,product.movie)">Download</button>
+           </div>
         </div>
       </div>
     </div>
@@ -19,7 +30,18 @@
           <img [src]="product.mpcspath" style="width: 100%;height: 100%;"/>
         </div>
         <div class="col">
-           like, rate and share
+          <div class="row">
+            <button type="button" class="btn btn-dark">Like</button>
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn-danger">Preview</button>
+           </div>
+           <div class="row">
+            <button type="button" class="btn btn-secondary">Share</button>
+           </div>
+           <div class="row">
+            <button type="button" class="btn btn-light" (click)=downloadMpImage(product.mpcspath,product.movie)>Download</button>
+           </div>
         </div>
       </div>
     </div>
