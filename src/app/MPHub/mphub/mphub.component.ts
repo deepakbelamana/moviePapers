@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MPCinematicProduct } from 'src/app/model/mpcinematic-product';
 import { MPPaperProduct } from 'src/app/model/mpproduct';
@@ -16,7 +16,8 @@ export class MPHubComponent implements OnInit {
     private route: ActivatedRoute,
     private mpHubService: MPHubService,
     private productsComponent: ProductsComponent,
-    private downloadMpProduct: DownloadMPProductComponent
+    private downloadMpProduct: DownloadMPProductComponent,
+    private elementRef : ElementRef
   ) {}
 
   selectedProduct: string = '';
@@ -89,11 +90,24 @@ export class MPHubComponent implements OnInit {
   }
 
 /**
- * opens the image in new tab for preview before download.
+ * opens the image in full screen mode for preview before download.
  * @param imageUrl
  */
   previewImage(imageUrl: string) {
-    window.open(imageUrl,'_blank','fullscreen')
+    const imgElement: HTMLImageElement = this.elementRef.nativeElement.querySelector('img');
+    //to preview every image when clicked to  preview
+    imgElement.src=imageUrl
+    if (imgElement) {
+      if (imgElement.requestFullscreen) {
+        imgElement.requestFullscreen();
+        imgElement.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+        });
+    } else {
+      alert("enable the pop-ups of browser and try again.!")
+    }
+
   }
+}
 }
 
