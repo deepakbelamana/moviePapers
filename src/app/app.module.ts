@@ -15,6 +15,8 @@ import { MPHubComponent } from './MPHub/mphub/mphub.component';
 import { NoProductExistComponent } from './NoExistence/no-product-exist/no-product-exist.component';
 import { BulkUploadMongoComponent } from './Admin/bulk-upload-mongo/bulk-upload-mongo.component';
 import { DownloadMPProductComponent } from './MPHub/download-mpproduct/download-mpproduct.component';
+import { UserLoginComponent } from './User/user-login/user-login.component';
+import { UserRegisterComponent } from './User/user-register/user-register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DownloadMPProductComponent } from './MPHub/download-mpproduct/download-
     MPHubComponent,
     NoProductExistComponent,
     BulkUploadMongoComponent,
-    DownloadMPProductComponent
+    DownloadMPProductComponent,
+    UserLoginComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
