@@ -14,11 +14,12 @@ export class BulkUploadMongoComponent implements OnInit {
   }
 
   selectedFolder:string="";
-  productFolder=['MPCinematic','MPPaper','MPReview']
+  productFolder=['MPCinematic','MPPaper','MPReview'];
+  imgExtensions=['png','jpg'];
 
   bulkUploadToMongo(bulkUploadForm :any) {
       this.bulkUploadService.bulkUploadDataToMongo(bulkUploadForm.value).subscribe((response:any)=>{
-        console.log(response)
+        alert(response);
       })
   }
 }
