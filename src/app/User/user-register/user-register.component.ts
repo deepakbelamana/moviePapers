@@ -12,4 +12,7 @@ export class UserRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  registerUserForm(form:any) {
+    console.log(form)
+  }
 }

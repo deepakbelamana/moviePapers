@@ -1,8 +1,9 @@
 <app-header></app-header>
 <div class="bulkUploadForm">
   <!--rules before bulk uploading-->
-  <div class="alert alert-info" role="alert" style="width: 50%;">
-    for suppose image url is 'https://ik.imagekit.io/6g5vpl8al/MPCinematic/maamannan/maamannan_50_.png'
+  <div class="alert alert-info" role="alert" style="width: 50%;overflow: auto;">
+    for suppose image url is <p style="font-style: italic;font-size: smaller;
+    ">'https://ik.imagekit.io/12345/MPCinematic/maamannan/maamannan_50_.png'<p>
     <ul>
       <li>filename and movie name should be same i.e 'maamannan'</li>
       <li>folder name will be 'MPCinematic'</li>
@@ -13,11 +14,13 @@
   <form #bulkUploadForm="ngForm" (ngSubmit)="bulkUploadToMongo(bulkUploadForm)">
     <div class="form-group">
       <label for="exampleInputEmail1">movie name</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="movie" name="movie" ngModel>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="movie"
+        name="movie" ngModel>
     </div>
     <div class="form-group">
       <label for="productFolderOptions">select Product Folder</label>
-      <select class="form-select" [(ngModel)]="selectedFolder" name="productFolderOption" id="productFolderOptions" ngModel>
+      <select class="form-select" [(ngModel)]="selectedFolder" name="productFolderOption" id="productFolderOptions"
+        ngModel>
         <option *ngFor="let folder of productFolder">{{folder}}</option>
       </select>
     </div>
@@ -27,11 +30,13 @@
     </div>
     <div class="form-group">
       <label for="imageStartNumber">Image start number</label>
-      <input type="number" class="form-control" id="imageStartNumber" placeholder="image starting number" name="imageStartNumber" ngModel>
+      <input type="number" class="form-control" id="imageStartNumber" placeholder="image starting number"
+        name="imageStartNumber" ngModel>
     </div>
     <div class="form-group">
       <label for="imageEndNumber">Image end number</label>
-      <input type="number" class="form-control" id="imageEndNumber" placeholder="image ending number" name="imageEndNumber" ngModel>
+      <input type="number" class="form-control" id="imageEndNumber" placeholder="image ending number"
+        name="imageEndNumber" ngModel>
     </div>
     <div class="form-group">
       <label for="imgExtension">select Image Extension</label>
