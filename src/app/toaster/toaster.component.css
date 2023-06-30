@@ -1,0 +1,14 @@
+.toaster {
+  position: fixed;
+  top: 4%;
+  right: 20px;
+  padding: 10px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: red;
+}

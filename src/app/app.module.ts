@@ -17,6 +17,7 @@ import { BulkUploadMongoComponent } from './Admin/bulk-upload-mongo/bulk-upload-
 import { DownloadMPProductComponent } from './MPHub/download-mpproduct/download-mpproduct.component';
 import { UserLoginComponent } from './User/user-login/user-login.component';
 import { UserRegisterComponent } from './User/user-register/user-register.component';
+import { ToasterComponent } from './toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserRegisterComponent } from './User/user-register/user-register.compon
     BulkUploadMongoComponent,
     DownloadMPProductComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { UserRegisterComponent } from './User/user-register/user-register.compon
     AutocompleteLibModule,
     FormsModule
   ],
-  providers: [ProductsComponent,DownloadMPProductComponent],
+  providers: [ProductsComponent,DownloadMPProductComponent,ToasterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
