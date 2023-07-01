@@ -4,17 +4,17 @@
 }
 
 .row{
-  box-shadow: 1px 1px 5px 2px rgb(241, 241, 241);
   border: 0px solid #000000;
-  padding:1.5%;
-  margin:2% 2% 0px 2%;
-  border-radius: 5px;
+  margin:2%;
+  border-radius: 3px;
 }
 
-.row button{
-  width: 50%;
-  margin: auto;
-  padding: 2.5%;
+.row  button{
+  width: auto;
+}
+
+.col{
+  margin:8px;
 }
 
 

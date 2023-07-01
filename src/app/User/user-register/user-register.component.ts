@@ -29,7 +29,10 @@ export class UserRegisterComponent implements OnInit {
         this.showToast = true;
         this.isSuccess = true;
         this.toastMessage = res;
-        this.router.navigate(['login'])
+        setTimeout(()=>{
+          this.router.navigate(['login']);
+        }, 2000)
+
       },
       (err) => {
         this.showToast = true;
