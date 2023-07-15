@@ -11,6 +11,6 @@ export class MpuserService {
   constructor(private movieService:MovieService,private http : HttpClient) { }
 
   registerUser(mpUser:Mpuser){
-      return this.http.post(this.movieService.baseProductionApiUrl+"user/register",mpUser,{responseType: 'text'})
+      return this.http.post(this.movieService.baseLocalApiUrl+"user/register",mpUser,{responseType: 'text'})
   }
 }

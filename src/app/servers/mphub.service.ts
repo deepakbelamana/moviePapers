@@ -15,6 +15,6 @@ export class MPHubService {
    * service call to get product images based in the movie selected and product type
    */
   getMPProductImages(productType:string,movie:string){
-    return this.http.get<MPPaperProduct>(this.movieService.baseProductionApiUrl+productType+"/"+movie)
+    return this.http.get<MPPaperProduct>(this.movieService.baseLocalApiUrl+productType+"/"+movie)
   }
 }
