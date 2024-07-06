@@ -14,10 +14,10 @@ export class MovieService {
   }
 
   getAllMoviesList(){
-    return this.http.get(this.baseProductionApiUrl+"moviesList")
+    return this.http.get(this.baseLocalApiUrl+"moviesList")
   }
 
   getMPMovieBasedOnMovieSearchItem(searchItem:string) {
-    return this.http.get<Movie>(this.baseProductionApiUrl+"movie/"+searchItem);
+    return this.http.get<Movie>(this.baseLocalApiUrl+"movie/"+searchItem);
   }
 }

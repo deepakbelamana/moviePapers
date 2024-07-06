@@ -5,15 +5,18 @@ import { MPHubComponent } from './MPHub/mphub/mphub.component';
 import { BulkUploadMongoComponent } from './Admin/bulk-upload-mongo/bulk-upload-mongo.component';
 import { UserLoginComponent } from './User/user-login/user-login.component';
 import { UserRegisterComponent } from './User/user-register/user-register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path:'home',
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'',
-   component:HomeComponent
+   component:HomeComponent,
+   canActivate:[AuthGuard]
   },
   {
     path:'MPHub/:productType/:movie',
@@ -30,7 +33,7 @@ const routes: Routes = [
   {
     path:'register',
     component:UserRegisterComponent
-  }
+  },
 ];
 
 @NgModule({

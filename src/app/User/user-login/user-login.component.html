@@ -6,7 +6,7 @@
 </div>
 <div class="main">
   <div class="col-md-6 col-sm-12">
-    <div class="login-form">
+    <div class="login-form" *ngIf="!this.forgotPassword">
       <form>
         <div class="form-group">
           <label>Email</label>
@@ -16,9 +16,27 @@
           <label>Password</label>
           <input type="password" class="form-control" placeholder="Password">
         </div>
+        <div class="form-group">
+          <p (click)="enableForgotPasswordForm()">forgot password ?</p>
+        </div>
         <button type="submit" class="btn btn-danger">Login</button>
         <button type="button" class="btn btn-dark" [routerLink]="['/register']">Register</button>
       </form>
     </div>
+    <!--user forgot the password-->
+    <div class="col-md-6 col-sm-12">
+      <div class="login-form" *ngIf="this.forgotPassword">
+        <form>
+            <p>get password reset link to your mail</p>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-danger">submit</button>
+          </div>
+          <button type="button" class="btn btn-dark" (click)="onBackToLogin()">back to login</button>
+        </form>
+      </div>
   </div>
 </div>

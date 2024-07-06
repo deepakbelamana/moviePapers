@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-login',
@@ -8,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class UserLoginComponent implements OnInit {
 
   constructor() { }
-
+  forgotPassword:boolean = false;
   ngOnInit(): void {
+
+  }
+  onForgotPassword(){
+
   }
 
+  enableForgotPasswordForm(){
+    this.forgotPassword=true;
+  }
+  onBackToLogin(){
+    this.forgotPassword=false;
+  }
 }
